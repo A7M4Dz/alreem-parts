@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -166,12 +165,35 @@ const Index = () => {
   };
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/966504106845', '_blank');
+    // Use WhatsApp URL scheme for mobile apps, fallback to web
+    const whatsappUrl = `whatsapp://send?phone=966504106845`;
+    const webUrl = 'https://wa.me/966504106845';
+    
+    // Try to open the WhatsApp app first
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.click();
+    
+    // Fallback to web version after a short delay if app doesn't open
+    setTimeout(() => {
+      window.open(webUrl, '_blank');
+    }, 500);
   };
 
   const openGoogleMaps = () => {
-    const mapUrl = 'https://maps.app.goo.gl/8jsYZQAgsZgNrca47';
-    window.open(mapUrl, '_blank');
+    // Use Google Maps app URL scheme for mobile, fallback to web
+    const mapsAppUrl = 'comgooglemaps://?q=24.7136,46.6753&center=24.7136,46.6753&zoom=14';
+    const webUrl = 'https://maps.app.goo.gl/8jsYZQAgsZgNrca47';
+    
+    // Try to open Google Maps app first
+    const link = document.createElement('a');
+    link.href = mapsAppUrl;
+    link.click();
+    
+    // Fallback to web version after a short delay if app doesn't open
+    setTimeout(() => {
+      window.open(webUrl, '_blank');
+    }, 500);
   };
 
   const callPhone = () => {
