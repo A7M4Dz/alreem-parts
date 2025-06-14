@@ -1,4 +1,5 @@
 
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -181,37 +182,37 @@ const Index = () => {
   const t = content[isArabic ? 'ar' : 'en'];
 
   return (
-    <div className={`min-h-screen bg-white ${isArabic ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-white ${isArabic ? 'rtl' : 'ltr'} font-sans`}>
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 md:py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-primary-800">
+            <div className="text-xl md:text-2xl font-bold text-primary-800 tracking-wide">
               {t.hero.title}
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+              <a href="#home" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.home}
               </a>
-              <a href="#brands" className="text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#brands" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.brands}
               </a>
-              <a href="#location" className="text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#location" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.location}
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#contact" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.contact}
               </a>
             </nav>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               <Button
                 onClick={() => setIsArabic(!isArabic)}
                 variant="outline"
                 size="sm"
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 text-sm"
               >
                 <Globe className="w-4 h-4" />
                 <span>{isArabic ? 'EN' : 'AR'}</span>
@@ -231,17 +232,17 @@ const Index = () => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <nav className="md:hidden mt-4 space-y-2 animate-fade-in">
-              <a href="#home" className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
+            <nav className="md:hidden mt-4 space-y-2 animate-fade-in border-t pt-4">
+              <a href="#home" className="block py-3 text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.home}
               </a>
-              <a href="#brands" className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#brands" className="block py-3 text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.brands}
               </a>
-              <a href="#location" className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#location" className="block py-3 text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.location}
               </a>
-              <a href="#contact" className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
+              <a href="#contact" className="block py-3 text-gray-700 hover:text-primary-600 transition-colors font-medium">
                 {t.nav.contact}
               </a>
             </nav>
@@ -272,25 +273,25 @@ const Index = () => {
         
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-in-right text-shadow-lg">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 animate-slide-in-right text-shadow-lg leading-tight">
               {t.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl mb-4 animate-fade-in text-shadow-md">
+            <p className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 animate-fade-in text-shadow-md font-medium">
               {t.hero.subtitle}
             </p>
-            <p className="text-lg md:text-xl opacity-90 animate-fade-in text-shadow-md">
+            <p className="text-base md:text-lg lg:text-xl opacity-90 animate-fade-in text-shadow-md leading-relaxed">
               {t.hero.description}
             </p>
           </div>
         </div>
 
         {/* Enhanced Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
                 index === currentSlide 
                   ? 'bg-white scale-125 shadow-lg' 
                   : 'bg-white/50 hover:bg-white/75'
@@ -300,29 +301,33 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Brands Section */}
-      <section id="brands" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      {/* Brands Section with Logos */}
+      <section id="brands" className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               {t.brands.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {t.brands.subtitle}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {/* IVECO Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in border-0 shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-3xl font-bold text-primary-800">I</span>
+              <CardContent className="p-6 md:p-8 text-center">
+                <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100 group-hover:scale-105 transition-all duration-300">
+                  <img 
+                    src="/lovable-uploads/451b023c-8e9a-476f-b79a-fa85b2f46255.png" 
+                    alt="IVECO Logo" 
+                    className="w-28 h-auto md:w-36 object-contain"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                   {t.brands.iveco.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   {t.brands.iveco.description}
                 </p>
               </CardContent>
@@ -330,14 +335,18 @@ const Index = () => {
 
             {/* MAN Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in border-0 shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-3xl font-bold text-primary-800">M</span>
+              <CardContent className="p-6 md:p-8 text-center">
+                <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100 group-hover:scale-105 transition-all duration-300">
+                  <img 
+                    src="/lovable-uploads/84895c8a-1944-4027-b85f-682c841e01cc.png" 
+                    alt="MAN Logo" 
+                    className="w-24 h-auto md:w-32 object-contain"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                   {t.brands.man.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   {t.brands.man.description}
                 </p>
               </CardContent>
@@ -345,14 +354,16 @@ const Index = () => {
 
             {/* ZF Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 animate-fade-in border-0 shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-3xl font-bold text-primary-800">ZF</span>
+              <CardContent className="p-6 md:p-8 text-center">
+                <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100 group-hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-12 md:w-24 md:h-14 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg flex items-center justify-center">
+                    <span className="text-xl md:text-2xl font-bold text-primary-800">ZF</span>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                   {t.brands.zf.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   {t.brands.zf.description}
                 </p>
               </CardContent>
@@ -362,29 +373,29 @@ const Index = () => {
       </section>
 
       {/* Location Section with Enhanced Map */}
-      <section id="location" className="py-20 bg-white">
+      <section id="location" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               {t.location.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {t.location.subtitle}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Enhanced Map Placeholder */}
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl h-96 flex items-center justify-center animate-fade-in shadow-lg overflow-hidden relative group">
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl h-80 md:h-96 flex items-center justify-center animate-fade-in shadow-lg overflow-hidden relative group cursor-pointer" onClick={openGoogleMaps}>
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity"
                 style={{ backgroundImage: "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"2\" fill=\"%23ddd\"/></svg>')" }}
               />
               <div className="text-center relative z-10">
-                <MapPin className="w-16 h-16 text-primary-600 mx-auto mb-4 animate-bounce" />
-                <p className="text-gray-700 text-lg font-semibold mb-2">ALREEM Location</p>
-                <p className="text-gray-600 mb-4">Click to view on Google Maps</p>
-                <Button onClick={openGoogleMaps} className="bg-primary-600 hover:bg-primary-700 shadow-lg">
+                <MapPin className="w-12 h-12 md:w-16 md:h-16 text-primary-600 mx-auto mb-4 animate-bounce" />
+                <p className="text-gray-700 text-lg md:text-xl font-semibold mb-2">ALREEM Location</p>
+                <p className="text-gray-600 mb-4 text-sm md:text-base">Click to view on Google Maps</p>
+                <Button className="bg-primary-600 hover:bg-primary-700 shadow-lg">
                   <MapPin className="w-4 h-4 mr-2" />
                   {t.location.directions}
                 </Button>
@@ -392,24 +403,24 @@ const Index = () => {
             </div>
 
             {/* Enhanced Hours */}
-            <div className="space-y-8 animate-slide-in-right">
-              <div className="bg-gradient-to-br from-primary-50 to-blue-50 p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <Clock className="w-6 h-6 mr-3 text-primary-600" />
+            <div className="space-y-6 md:space-y-8 animate-slide-in-right">
+              <div className="bg-gradient-to-br from-primary-50 to-blue-50 p-6 md:p-8 rounded-xl shadow-lg">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 mr-3 text-primary-600" />
                   {t.location.hours}
                 </h3>
-                <div className="space-y-4 text-lg">
-                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
-                    <span className="text-gray-700 font-medium">{t.location.schedule.split(':')[0]}:</span>
-                    <span className="text-primary-600 font-semibold">7:00 AM - 7:00 PM</span>
+                <div className="space-y-3 md:space-y-4 text-base md:text-lg">
+                  <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-lg shadow-sm">
+                    <span className="text-gray-700 font-medium text-sm md:text-base">{t.location.schedule.split(':')[0]}:</span>
+                    <span className="text-primary-600 font-semibold text-sm md:text-base">7:00 AM - 7:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg shadow-sm">
-                    <span className="text-red-700 font-medium">{t.location.friday}</span>
-                    <span className="text-red-600 font-semibold">Closed | مغلق</span>
+                  <div className="flex justify-between items-center p-3 md:p-4 bg-red-50 rounded-lg shadow-sm">
+                    <span className="text-red-700 font-medium text-sm md:text-base">{t.location.friday}</span>
+                    <span className="text-red-600 font-semibold text-sm md:text-base">Closed | مغلق</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
-                    <span className="text-gray-700 font-medium">{t.location.saturday.split(':')[0]}:</span>
-                    <span className="text-primary-600 font-semibold">7:00 AM - 7:00 PM</span>
+                  <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-lg shadow-sm">
+                    <span className="text-gray-700 font-medium text-sm md:text-base">{t.location.saturday.split(':')[0]}:</span>
+                    <span className="text-primary-600 font-semibold text-sm md:text-base">7:00 AM - 7:00 PM</span>
                   </div>
                 </div>
               </div>
@@ -419,25 +430,25 @@ const Index = () => {
       </section>
 
       {/* Enhanced Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-primary-50 to-blue-50">
+      <section id="contact" className="py-16 md:py-20 bg-gradient-to-br from-primary-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               {t.contact.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {t.contact.subtitle}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in border-0 shadow-lg">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Mail className="w-8 h-8 text-primary-600" />
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Mail className="w-6 h-6 md:w-8 md:h-8 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
                     {t.contact.email}
                   </h3>
                   <Button
@@ -451,11 +462,11 @@ const Index = () => {
               </Card>
 
               <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in border-0 shadow-lg">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Phone className="w-8 h-8 text-primary-600" />
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Phone className="w-6 h-6 md:w-8 md:h-8 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
                     {t.contact.phone}
                   </h3>
                   <Button
@@ -473,18 +484,18 @@ const Index = () => {
       </section>
 
       {/* Enhanced Footer */}
-      <footer className="bg-gradient-to-r from-primary-900 to-primary-800 text-white py-12">
+      <footer className="bg-gradient-to-r from-primary-900 to-primary-800 text-white py-10 md:py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="mb-6">
-              <h3 className="text-3xl font-bold mb-2">{t.hero.title}</h3>
-              <p className="text-primary-200">{t.hero.subtitle}</p>
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">{t.hero.title}</h3>
+              <p className="text-primary-200 text-sm md:text-base">{t.hero.subtitle}</p>
             </div>
-            <p className="text-lg mb-6 text-primary-100">{t.footer.rights}</p>
+            <p className="text-base md:text-lg mb-6 text-primary-100">{t.footer.rights}</p>
             <Button
               onClick={callPhone}
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-primary-900 transition-all duration-300"
+              className="border-white text-white hover:bg-white hover:text-primary-900 transition-all duration-300 text-sm md:text-base"
             >
               <Phone className="w-4 h-4 mr-2" />
               {t.footer.phone}
@@ -493,25 +504,25 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Enhanced WhatsApp Button */}
+      {/* Static WhatsApp Button */}
       <Button
         onClick={openWhatsApp}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 shadow-2xl animate-float hover:scale-110 transition-all duration-300"
+        className="fixed bottom-4 md:bottom-6 right-4 md:right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-14 h-14 md:w-16 md:h-16 shadow-2xl hover:scale-105 transition-all duration-300"
         size="sm"
         title={t.whatsapp}
       >
-        <MessageCircle className="w-7 h-7" />
+        <MessageCircle className="w-6 h-6 md:w-7 md:h-7" />
       </Button>
 
       {/* Enhanced Scroll to Top Button */}
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-50 bg-primary-600 hover:bg-primary-700 text-white rounded-full w-16 h-16 shadow-2xl animate-fade-in hover:scale-110 transition-all duration-300"
+          className="fixed bottom-4 md:bottom-6 left-4 md:left-6 z-50 bg-primary-600 hover:bg-primary-700 text-white rounded-full w-14 h-14 md:w-16 md:h-16 shadow-2xl animate-fade-in hover:scale-105 transition-all duration-300"
           size="sm"
           title={t.scrollTop}
         >
-          <ArrowUp className="w-7 h-7" />
+          <ArrowUp className="w-6 h-6 md:w-7 md:h-7" />
         </Button>
       )}
     </div>
@@ -519,3 +530,4 @@ const Index = () => {
 };
 
 export default Index;
+
