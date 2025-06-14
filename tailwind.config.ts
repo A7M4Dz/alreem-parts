@@ -26,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#1e40af',
+					DEFAULT: '#2563eb',
 					foreground: '#ffffff',
 					50: '#eff6ff',
 					100: '#dbeafe',
@@ -70,6 +70,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'arabic': ['Tajawal', 'Cairo', 'Amiri', 'Noto Sans Arabic', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
