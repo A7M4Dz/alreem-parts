@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, MapPin, Clock, Mail, MessageCircle, ArrowUp, Globe, Menu, X } from 'lucide-react';
+import { RFQForm } from '@/components/RFQForm';
 
 const Index = () => {
   const [isArabic, setIsArabic] = useState(false);
@@ -165,19 +166,15 @@ const Index = () => {
   };
 
   const openWhatsApp = () => {
-    // Use WhatsApp URL scheme for mobile apps, fallback to web
-    const whatsappUrl = `whatsapp://send?phone=966504106845`;
-    const webUrl = 'https://wa.me/966504106845';
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    // Try to open the WhatsApp app first
-    const link = document.createElement('a');
-    link.href = whatsappUrl;
-    link.click();
-    
-    // Fallback to web version after a short delay if app doesn't open
-    setTimeout(() => {
-      window.open(webUrl, '_blank');
-    }, 500);
+    if (isMobile) {
+      // Try WhatsApp app first on mobile
+      window.location.href = 'whatsapp://send?phone=966504106845';
+    } else {
+      // Open web WhatsApp on desktop
+      window.open('https://wa.me/966504106845', '_blank');
+    }
   };
 
   const openGoogleMaps = () => {
@@ -464,8 +461,14 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="max-w-6xl mx-auto space-y-12">
+            {/* RFQ Form */}
+            <div className="animate-fade-in">
+              <RFQForm isArabic={isArabic} />
+            </div>
+
+            {/* Contact Cards */}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in border-0 shadow-lg bg-white">
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
