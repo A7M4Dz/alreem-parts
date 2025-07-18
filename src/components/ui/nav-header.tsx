@@ -11,16 +11,25 @@ function NavHeader() {
     opacity: 0,
   });
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <ul
       className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
-      <Tab setPosition={setPosition}>Home</Tab>
-      <Tab setPosition={setPosition}>Pricing</Tab>
-      <Tab setPosition={setPosition}>About</Tab>
-      <Tab setPosition={setPosition}>Services</Tab>
-      <Tab setPosition={setPosition}>Contact</Tab>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('home')}>Home</Tab>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('brands')}>Brands</Tab>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('location')}>Location</Tab>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('contact')}>Contact</Tab>
 
       <Cursor position={position} />
     </ul>
@@ -30,9 +39,11 @@ function NavHeader() {
 const Tab = ({
   children,
   setPosition,
+  onClick,
 }: {
   children: React.ReactNode;
   setPosition: any;
+  onClick?: () => void;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
   return (
@@ -48,7 +59,8 @@ const Tab = ({
           left: ref.current.offsetLeft,
         });
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      onClick={onClick}
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-all duration-200 hover:scale-105"
     >
       {children}
     </li>
