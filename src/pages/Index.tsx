@@ -115,32 +115,32 @@ const Index = () => {
 
   const slides = [
     {
-      image: '/lovable-uploads/6a846b3b-bca0-487c-980d-953b71338401.png',
+      image: './lovable-uploads/6a846b3b-bca0-487c-980d-953b71338401.png',
       title: 'ZF PowerLine Technology',
       titleAr: 'تقنية زد إف باور لاين'
     },
     {
-      image: '/lovable-uploads/0c3fdcc3-e54d-4923-af6b-b5b885b68c48.png',
+      image: './lovable-uploads/0c3fdcc3-e54d-4923-af6b-b5b885b68c48.png',
       title: 'IVECO Stralis Trucks',
       titleAr: 'شاحنات إيفيكو ستراليس'
     },
     {
-      image: '/lovable-uploads/098dd476-7415-4b8c-ae82-cc71f15dfbf6.png',
+      image: './lovable-uploads/098dd476-7415-4b8c-ae82-cc71f15dfbf6.png',
       title: 'IVECO S-WAY Electric',
       titleAr: 'إيفيكو إس-واي الكهربائية'
     },
     {
-      image: '/lovable-uploads/35987b35-7fe3-438e-8aac-0b28498a4b14.png',
+      image: './lovable-uploads/35987b35-7fe3-438e-8aac-0b28498a4b14.png',
       title: 'IVECO S-WAY Next Gen',
       titleAr: 'إيفيكو إس-واي الجيل الجديد'
     },
     {
-      image: '/lovable-uploads/08bd2653-a697-4829-8245-e8c870070726.png',
+      image: './lovable-uploads/08bd2653-a697-4829-8245-e8c870070726.png',
       title: 'MAN TGX Trucks',
       titleAr: 'شاحنات مان تي جي إكس'
     },
     {
-      image: '/lovable-uploads/41796176-d4a3-42be-973a-4b3fe2acb9de.png',
+      image: './lovable-uploads/41796176-d4a3-42be-973a-4b3fe2acb9de.png',
       title: 'IVECO S-WAY Heavy Duty',
       titleAr: 'إيفيكو إس-واي للخدمة الشاقة'
     }
@@ -178,19 +178,26 @@ const Index = () => {
   };
 
   const openGoogleMaps = () => {
-    // Use Google Maps app URL scheme for mobile, fallback to web
-    const mapsAppUrl = 'comgooglemaps://?q=24.7136,46.6753&center=24.7136,46.6753&zoom=14';
-    const webUrl = 'https://maps.app.goo.gl/8jsYZQAgsZgNrca47';
+    // Use coordinates for better compatibility
+    const coords = '24.7136,46.6753';
+    const place = 'ALREEM Truck Parts, Riyadh, Saudi Arabia';
     
-    // Try to open Google Maps app first
-    const link = document.createElement('a');
-    link.href = mapsAppUrl;
-    link.click();
+    // Try Google Maps app URL for mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    // Fallback to web version after a short delay if app doesn't open
-    setTimeout(() => {
-      window.open(webUrl, '_blank');
-    }, 500);
+    if (isMobile) {
+      // Try maps app first
+      const mapsAppUrl = `maps://?q=${coords}&ll=${coords}&z=15`;
+      window.location.href = mapsAppUrl;
+      
+      // Fallback to Google Maps web after short delay
+      setTimeout(() => {
+        window.open(`https://www.google.com/maps/search/?api=1&query=${coords}&zoom=15`, '_blank');
+      }, 1000);
+    } else {
+      // Direct link to Google Maps web
+      window.open(`https://www.google.com/maps/search/?api=1&query=${coords}&zoom=15`, '_blank');
+    }
   };
 
   const callPhone = () => {
@@ -337,7 +344,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-slate-100 group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src="/lovable-uploads/451b023c-8e9a-476f-b79a-fa85b2f46255.png" 
+                    src="./lovable-uploads/451b023c-8e9a-476f-b79a-fa85b2f46255.png" 
                     alt="IVECO Logo" 
                     className="w-28 h-auto md:w-36 object-contain"
                   />
@@ -356,7 +363,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-slate-100 group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src="/lovable-uploads/84895c8a-1944-4027-b85f-682c841e01cc.png" 
+                    src="./lovable-uploads/84895c8a-1944-4027-b85f-682c841e01cc.png" 
                     alt="MAN Logo" 
                     className="w-24 h-auto md:w-32 object-contain"
                   />
@@ -375,7 +382,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-6 shadow-md border border-slate-100 group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src="/lovable-uploads/13551a0e-f2d3-40de-8bda-f827d4768f1d.png" 
+                    src="./lovable-uploads/13551a0e-f2d3-40de-8bda-f827d4768f1d.png" 
                     alt="ZF Logo" 
                     className="w-20 h-auto md:w-24 object-contain"
                   />
