@@ -2,16 +2,8 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Phone, MapPin, Clock, Mail, MessageCircle, ArrowUp, Globe, Menu, X, Sun, Moon, Truck, Zap, Settings, Shield } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, MessageCircle, ArrowUp, Globe, Menu, X, Sun, Moon } from 'lucide-react';
 import { RFQForm } from '@/components/RFQForm';
-
-// Import embedded images
-import heroSlide1 from '@/assets/hero-slide-1.jpg';
-import heroSlide2 from '@/assets/hero-slide-2.jpg';
-import heroSlide3 from '@/assets/hero-slide-3.jpg';
-import ivecoLogo from '@/assets/iveco-logo.png';
-import manLogo from '@/assets/man-logo.png';
-import zfLogo from '@/assets/zf-logo.png';
 
 const Index = () => {
   const [isArabic, setIsArabic] = useState(false);
@@ -131,19 +123,34 @@ const Index = () => {
 
   const slides = [
     {
-      image: heroSlide1,
-      title: 'IVECO Technology',
-      titleAr: 'تقنية إيفيكو'
+      image: './lovable-uploads/6a846b3b-bca0-487c-980d-953b71338401.png',
+      title: 'ZF PowerLine Technology',
+      titleAr: 'تقنية زد إف باور لاين'
     },
     {
-      image: heroSlide2,
-      title: 'MAN Engineering',
-      titleAr: 'هندسة مان'
+      image: './lovable-uploads/0c3fdcc3-e54d-4923-af6b-b5b885b68c48.png',
+      title: 'IVECO Stralis Trucks',
+      titleAr: 'شاحنات إيفيكو ستراليس'
     },
     {
-      image: heroSlide3,
-      title: 'ZF Innovation',
-      titleAr: 'ابتكار زد إف'
+      image: './lovable-uploads/098dd476-7415-4b8c-ae82-cc71f15dfbf6.png',
+      title: 'IVECO S-WAY Electric',
+      titleAr: 'إيفيكو إس-واي الكهربائية'
+    },
+    {
+      image: './lovable-uploads/35987b35-7fe3-438e-8aac-0b28498a4b14.png',
+      title: 'IVECO S-WAY Next Gen',
+      titleAr: 'إيفيكو إس-واي الجيل الجديد'
+    },
+    {
+      image: './lovable-uploads/08bd2653-a697-4829-8245-e8c870070726.png',
+      title: 'MAN TGX Trucks',
+      titleAr: 'شاحنات مان تي جي إكس'
+    },
+    {
+      image: './lovable-uploads/41796176-d4a3-42be-973a-4b3fe2acb9de.png',
+      title: 'IVECO S-WAY Heavy Duty',
+      titleAr: 'إيفيكو إس-واي للخدمة الشاقة'
     }
   ];
 
@@ -310,6 +317,9 @@ const Index = () => {
             <p className="text-base md:text-lg lg:text-xl opacity-90 animate-fade-in text-shadow-md leading-relaxed">
               {t.hero.description}
             </p>
+            <div className="mt-6 text-xl md:text-2xl font-bold text-shadow-lg">
+              {isArabic ? slides[currentSlide].titleAr : slides[currentSlide].title}
+            </div>
           </div>
         </div>
 
@@ -347,7 +357,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-background rounded-lg flex items-center justify-center mx-auto mb-6 shadow-medium border border-border group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src={ivecoLogo} 
+                    src="./lovable-uploads/451b023c-8e9a-476f-b79a-fa85b2f46255.png" 
                     alt="IVECO Logo" 
                     className="w-28 h-auto md:w-36 object-contain"
                   />
@@ -373,7 +383,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-background rounded-lg flex items-center justify-center mx-auto mb-6 shadow-medium border border-border group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src={manLogo} 
+                    src="./lovable-uploads/84895c8a-1944-4027-b85f-682c841e01cc.png" 
                     alt="MAN Logo" 
                     className="w-24 h-auto md:w-32 object-contain"
                   />
@@ -399,7 +409,7 @@ const Index = () => {
               <CardContent className="p-6 md:p-8 text-center">
                 <div className="w-32 h-20 md:w-40 md:h-24 bg-background rounded-lg flex items-center justify-center mx-auto mb-6 shadow-medium border border-border group-hover:scale-105 transition-all duration-300">
                   <img 
-                    src={zfLogo} 
+                    src="./lovable-uploads/13551a0e-f2d3-40de-8bda-f827d4768f1d.png" 
                     alt="ZF Logo" 
                     className="w-20 h-auto md:w-24 object-contain"
                   />
@@ -442,7 +452,6 @@ const Index = () => {
               <div className="text-center z-10 group-hover:scale-105 transition-transform duration-300">
                 <MapPin className="w-16 h-16 text-primary mx-auto mb-4 animate-pulse" />
                 <h3 className="text-xl font-bold text-foreground mb-2">ALREEM Location</h3>
-                <p className="text-muted-foreground mb-4">26.461504, 50.013986</p>
                 <Button onClick={openGoogleMaps} className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow">
                   <MapPin className="w-4 h-4 mr-2" />
                   {t.location.directions}
@@ -536,10 +545,10 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Enhanced WhatsApp Button */}
+      {/* WhatsApp Button */}
       <Button
         onClick={openWhatsApp}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-large z-40 animate-pulse hover:animate-none hover:scale-110 transition-all duration-300"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-large z-40 transition-all duration-300 hover:scale-110"
         size="lg"
       >
         <MessageCircle className="w-6 h-6" />
