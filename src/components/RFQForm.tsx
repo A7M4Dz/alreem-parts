@@ -252,20 +252,20 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
   };
 
   return (
-    <Card className="hover:shadow-xl transition-all duration-300 animate-fade-in border-0 shadow-lg bg-white">
-      <CardHeader className="text-center bg-gradient-to-r from-blue-50 to-slate-50 rounded-t-lg">
-        <CardTitle className="text-2xl md:text-3xl font-bold text-slate-900 flex items-center justify-center gap-3">
-          <FileText className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
+    <Card className="hover:shadow-large transition-all duration-500 animate-fade-in border-border/50 shadow-medium bg-card/50 backdrop-blur-sm">
+      <CardHeader className="text-center bg-gradient-to-r from-primary/10 to-secondary/30 rounded-t-lg backdrop-blur-sm">
+        <CardTitle className="text-2xl md:text-3xl font-bold text-foreground flex items-center justify-center gap-3">
+          <FileText className="w-6 h-6 md:w-8 md:h-8 text-primary" />
           {t.title}
         </CardTitle>
-        <p className="text-slate-600 mt-2">{t.subtitle}</p>
+        <p className="text-muted-foreground mt-2">{t.subtitle}</p>
       </CardHeader>
       <CardContent className="p-6 md:p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Personal Information */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-slate-700 font-medium">
+              <Label htmlFor="name" className="text-foreground font-medium">
                 {t.fields.name} *
               </Label>
               <Input
@@ -274,11 +274,11 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 onChange={(e) => handleChange('name', e.target.value)}
                 placeholder={t.placeholders.name}
                 required
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-slate-700 font-medium">
+              <Label htmlFor="email" className="text-foreground font-medium">
                 {t.fields.email} *
               </Label>
               <Input
@@ -288,14 +288,14 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 onChange={(e) => handleChange('email', e.target.value)}
                 placeholder={t.placeholders.email}
                 required
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-slate-700 font-medium">
+              <Label htmlFor="phone" className="text-foreground font-medium">
                 {t.fields.phone} *
               </Label>
               <Input
@@ -305,11 +305,11 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 onChange={(e) => handleChange('phone', e.target.value)}
                 placeholder={t.placeholders.phone}
                 required
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="company" className="text-slate-700 font-medium">
+              <Label htmlFor="company" className="text-foreground font-medium">
                 {t.fields.company}
               </Label>
               <Input
@@ -317,7 +317,7 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 value={formData.company}
                 onChange={(e) => handleChange('company', e.target.value)}
                 placeholder={t.placeholders.company}
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
@@ -325,11 +325,11 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
           {/* Part Information */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="partType" className="text-slate-700 font-medium">
+              <Label htmlFor="partType" className="text-foreground font-medium">
                 {t.fields.partType} *
               </Label>
               <Select value={formData.partType} onValueChange={(value) => handleChange('partType', value)}>
-                <SelectTrigger className="border-slate-200 focus:border-blue-500 focus:ring-blue-500">
+                <SelectTrigger className="border-border bg-background focus:border-primary focus:ring-primary">
                   <SelectValue placeholder={`Select ${t.fields.partType.toLowerCase()}`} />
                 </SelectTrigger>
                 <SelectContent>
@@ -340,7 +340,7 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="partNumber" className="text-slate-700 font-medium">
+              <Label htmlFor="partNumber" className="text-foreground font-medium">
                 {t.fields.partNumber}
               </Label>
               <Input
@@ -348,14 +348,14 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 value={formData.partNumber}
                 onChange={(e) => handleChange('partNumber', e.target.value)}
                 placeholder={t.placeholders.partNumber}
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="quantity" className="text-slate-700 font-medium">
+              <Label htmlFor="quantity" className="text-foreground font-medium">
                 {t.fields.quantity} *
               </Label>
               <Input
@@ -364,15 +364,15 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
                 onChange={(e) => handleChange('quantity', e.target.value)}
                 placeholder={t.placeholders.quantity}
                 required
-                className="border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                className="border-border bg-background focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="urgency" className="text-slate-700 font-medium">
+              <Label htmlFor="urgency" className="text-foreground font-medium">
                 {t.fields.urgency} *
               </Label>
               <Select value={formData.urgency} onValueChange={(value) => handleChange('urgency', value)}>
-                <SelectTrigger className="border-slate-200 focus:border-blue-500 focus:ring-blue-500">
+                <SelectTrigger className="border-border bg-background focus:border-primary focus:ring-primary">
                   <SelectValue placeholder={`Select ${t.fields.urgency.toLowerCase()}`} />
                 </SelectTrigger>
                 <SelectContent>
@@ -385,11 +385,11 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="preferredContact" className="text-slate-700 font-medium">
+            <Label htmlFor="preferredContact" className="text-foreground font-medium">
               {t.fields.preferredContact}
             </Label>
             <Select value={formData.preferredContact} onValueChange={(value) => handleChange('preferredContact', value)}>
-              <SelectTrigger className="border-slate-200 focus:border-blue-500 focus:ring-blue-500">
+              <SelectTrigger className="border-border bg-background focus:border-primary focus:ring-primary">
                 <SelectValue placeholder={`Select ${t.fields.preferredContact.toLowerCase()}`} />
               </SelectTrigger>
               <SelectContent>
@@ -401,7 +401,7 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description" className="text-slate-700 font-medium">
+            <Label htmlFor="description" className="text-foreground font-medium">
               {t.fields.description}
             </Label>
             <Textarea
@@ -410,14 +410,14 @@ export const RFQForm = ({ isArabic }: RFQFormProps) => {
               onChange={(e) => handleChange('description', e.target.value)}
               placeholder={t.placeholders.description}
               rows={4}
-              className="border-slate-200 focus:border-blue-500 focus:ring-blue-500 resize-none"
+              className="border-border bg-background focus:border-primary focus:ring-primary resize-none"
             />
           </div>
 
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-large hover:shadow-glow hover:scale-105"
           >
             {isLoading ? (
               <>
